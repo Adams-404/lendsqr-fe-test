@@ -1,0 +1,139 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.users-table {
+  width: 100%;
+  background: $bg-primary;
+  border: 1px solid $border-light;
+  border-radius: $radius-xs;
+  overflow: hidden;
+  
+  @include respond-to('lg') {
+    overflow-x: auto;
+  }
+
+  &__wrapper {
+    width: 100%;
+    overflow-x: auto;
+    @include custom-scrollbar;
+
+    @include respond-to('lg') {
+      min-width: 900px;
+    }
+  }
+
+  &__table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  &__header {
+    background: $bg-primary;
+  }
+
+  &__header-cell {
+    position: relative;
+    padding: 16px;
+    text-align: left;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-semibold;
+    color: $text-secondary;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    border-bottom: 1px solid $border-light;
+
+    &-content {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+
+      svg {
+        width: 16px;
+        height: 16px;
+        opacity: 0.6;
+      }
+    }
+  }
+
+  &__body-row {
+    border-bottom: 1px solid $border-light;
+    transition: background 0.2s ease;
+
+    &:hover {
+      background: rgba($bg-secondary, 0.5);
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &__cell {
+    padding: 16px;
+    font-size: $font-size-sm;
+    color: $text-secondary;
+    white-space: nowrap;
+  }
+
+  &__actions {
+    position: relative;
+  }
+
+  &__actions-btn {
+    @include flex-center;
+    width: 24px;
+    height: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    border-radius: $radius-xs;
+    color: $text-secondary;
+    transition: background 0.2s ease;
+
+    &:hover {
+      background: rgba($text-secondary, 0.1);
+    }
+
+    svg {
+      width: 4px;
+      height: 16px;
+    }
+  }
+
+  &__actions-menu {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    z-index: $z-index-dropdown;
+    background: $bg-primary;
+    border: 1px solid $border-light;
+    border-radius: $radius-xs;
+    box-shadow: $shadow-dropdown;
+    min-width: 180px;
+    padding: 10px 0;
+  }
+
+  &__actions-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 20px;
+    font-size: $font-size-base;
+    color: $text-secondary;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    white-space: nowrap;
+
+    &:hover {
+      background: rgba($bg-secondary, 0.5);
+    }
+
+    svg {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+  }
+}

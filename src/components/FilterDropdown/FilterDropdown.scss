@@ -1,0 +1,140 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.filter-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: $z-index-dropdown;
+  background: $bg-primary;
+  border: 1px solid $border-light;
+  border-radius: $radius-xs;
+  padding: 30px;
+  width: 270px;
+  box-shadow: $shadow-filter;
+  margin-top: 10px;
+
+  @include respond-to('md') {
+    width: 250px;
+    padding: 20px;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  &__label {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: $text-secondary;
+  }
+
+  &__input {
+    width: 100%;
+    height: 40px;
+    padding: 0 12px;
+    border: 1px solid $border-light;
+    border-radius: $radius-md;
+    font-size: $font-size-base;
+    font-family: $font-family;
+    color: $text-primary;
+    outline: none;
+
+    &::placeholder {
+      color: $text-light;
+    }
+
+    &:focus {
+      border-color: $primary-teal;
+    }
+  }
+
+  &__select {
+    width: 100%;
+    height: 40px;
+    padding: 0 12px;
+    border: 1px solid $border-light;
+    border-radius: $radius-md;
+    font-size: $font-size-base;
+    font-family: $font-family;
+    color: $text-secondary;
+    background: $bg-primary;
+    cursor: pointer;
+    outline: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%23545F7D' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 36px;
+
+    &:focus {
+      border-color: $primary-teal;
+    }
+  }
+
+  &__input-date {
+    width: 100%;
+    height: 40px;
+    padding: 0 12px;
+    border: 1px solid $border-light;
+    border-radius: $radius-md;
+    font-size: $font-size-base;
+    font-family: $font-family;
+    color: $text-secondary;
+    outline: none;
+
+    &:focus {
+      border-color: $primary-teal;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    gap: 14px;
+    margin-top: 10px;
+  }
+
+  &__btn-reset {
+    flex: 1;
+    height: 40px;
+    border: 1px solid $text-secondary;
+    border-radius: $radius-md;
+    background: transparent;
+    font-size: $font-size-base;
+    font-weight: $font-weight-semibold;
+    font-family: $font-family;
+    color: $text-secondary;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: rgba($text-secondary, 0.05);
+    }
+  }
+
+  &__btn-filter {
+    flex: 1;
+    height: 40px;
+    border: none;
+    border-radius: $radius-md;
+    background: $primary-teal;
+    font-size: $font-size-base;
+    font-weight: $font-weight-semibold;
+    font-family: $font-family;
+    color: $bg-primary;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: darken($primary-teal, 5%);
+    }
+  }
+}

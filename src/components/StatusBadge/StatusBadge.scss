@@ -1,0 +1,33 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 13px;
+  border-radius: 100px;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-regular;
+  font-family: $font-family;
+
+  &--active {
+    background: $status-active-bg;
+    color: $status-active;
+  }
+
+  &--inactive {
+    background: $status-inactive-bg;
+    color: $status-inactive;
+  }
+
+  &--pending {
+    background: $status-pending-bg;
+    color: $status-pending;
+  }
+
+  &--blacklisted {
+    background: $status-blacklisted-bg;
+    color: $status-blacklisted;
+  }
+}

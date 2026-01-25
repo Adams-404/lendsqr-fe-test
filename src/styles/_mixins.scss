@@ -1,0 +1,183 @@
+// ===========================================
+// LENDSQR DESIGN SYSTEM - MIXINS
+// ===========================================
+
+@import './variables';
+
+// Responsive Breakpoints
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == 'sm' {
+    @media (max-width: $breakpoint-sm) {
+      @content;
+    }
+  } @else if $breakpoint == 'md' {
+    @media (max-width: $breakpoint-md) {
+      @content;
+    }
+  } @else if $breakpoint == 'lg' {
+    @media (max-width: $breakpoint-lg) {
+      @content;
+    }
+  } @else if $breakpoint == 'xl' {
+    @media (max-width: $breakpoint-xl) {
+      @content;
+    }
+  } @else if $breakpoint == 'xxl' {
+    @media (max-width: $breakpoint-xxl) {
+      @content;
+    }
+  }
+}
+
+// Flexbox helpers
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-start {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+// Typography
+@mixin text-style($size, $weight: $font-weight-regular, $color: $text-primary) {
+  font-size: $size;
+  font-weight: $weight;
+  color: $color;
+  font-family: $font-family;
+}
+
+@mixin heading-style {
+  font-family: $font-family;
+  font-weight: $font-weight-bold;
+  color: $text-primary;
+}
+
+// Card styles
+@mixin card-base {
+  background: $bg-card;
+  border-radius: $radius-xs;
+  box-shadow: $shadow-card;
+  border: 1px solid $border-light;
+}
+
+// Input styles
+@mixin input-base {
+  width: 100%;
+  height: 50px;
+  padding: 0 $spacing-md;
+  border: 2px solid $input-border;
+  border-radius: $radius-sm;
+  font-size: $font-size-base;
+  font-family: $font-family;
+  color: $text-primary;
+  background: $bg-input;
+  outline: none;
+  transition: border-color 0.2s ease;
+
+  &::placeholder {
+    color: $text-light;
+  }
+
+  &:focus {
+    border-color: $primary-teal;
+  }
+}
+
+// Button styles
+@mixin button-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: $font-family;
+  font-weight: $font-weight-semibold;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+@mixin button-primary {
+  @include button-base;
+  background: $primary-teal;
+  color: $bg-primary;
+  border-radius: $radius-md;
+  
+  &:hover {
+    background: darken($primary-teal, 5%);
+  }
+  
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+@mixin button-outline($color) {
+  @include button-base;
+  background: transparent;
+  border: 1px solid $color;
+  color: $color;
+  border-radius: $radius-md;
+  
+  &:hover {
+    background: rgba($color, 0.05);
+  }
+}
+
+// Status badge styles
+@mixin status-badge($bg, $color) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 14px;
+  border-radius: 100px;
+  background: $bg;
+  color: $color;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-regular;
+  text-transform: capitalize;
+}
+
+// Truncate text
+@mixin truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Scrollbar styles
+@mixin custom-scrollbar {
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: rgba($text-secondary, 0.1);
+    border-radius: 3px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba($text-secondary, 0.3);
+    border-radius: 3px;
+
+    &:hover {
+      background: rgba($text-secondary, 0.5);
+    }
+  }
+}

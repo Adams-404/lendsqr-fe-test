@@ -1,0 +1,182 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.login-page {
+  display: flex;
+  min-height: 100vh;
+  background: $bg-primary;
+
+  @include respond-to('lg') {
+    flex-direction: column;
+  }
+
+  &__left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 98px 86px;
+    background: $bg-primary;
+
+    @include respond-to('xl') {
+      padding: 60px 40px;
+    }
+
+    @include respond-to('lg') {
+      padding: 40px 30px;
+      align-items: center;
+    }
+
+    @include respond-to('md') {
+      padding: 30px 20px;
+    }
+  }
+
+  &__logo {
+    margin-bottom: 139px;
+
+    @include respond-to('lg') {
+      margin-bottom: 40px;
+    }
+
+    img {
+      width: 174px;
+      height: auto;
+
+      @include respond-to('md') {
+        width: 140px;
+      }
+    }
+  }
+
+  &__illustration {
+    max-width: 600px;
+    width: 100%;
+
+    @include respond-to('lg') {
+      max-width: 400px;
+      margin-bottom: 40px;
+    }
+
+    @include respond-to('md') {
+      max-width: 300px;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__right {
+    flex: 1;
+    @include flex-center;
+    padding: 50px;
+
+    @include respond-to('xl') {
+      padding: 40px;
+    }
+
+    @include respond-to('lg') {
+      padding: 30px 20px;
+    }
+  }
+
+  &__form-container {
+    width: 100%;
+    max-width: 447px;
+
+    @include respond-to('md') {
+      max-width: 100%;
+    }
+  }
+
+  &__title {
+    font-family: $font-family;
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-bold;
+    color: $text-primary;
+    margin-bottom: 10px;
+    line-height: 1.2;
+
+    @include respond-to('md') {
+      font-size: 32px;
+    }
+  }
+
+  &__subtitle {
+    font-family: $font-family;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-regular;
+    color: $text-secondary;
+    margin-bottom: 60px;
+
+    @include respond-to('lg') {
+      margin-bottom: 40px;
+    }
+
+    @include respond-to('md') {
+      font-size: $font-size-md;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  &__input-group {
+    position: relative;
+  }
+
+  &__input {
+    @include input-base;
+    padding-right: 70px;
+  }
+
+  &__show-btn {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: $primary-teal;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-semibold;
+    font-family: $font-family;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+
+    &:hover {
+      color: darken($primary-teal, 10%);
+    }
+  }
+
+  &__forgot-link {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-semibold;
+    color: $primary-teal;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-top: 0;
+    display: inline-block;
+
+    &:hover {
+      color: darken($primary-teal, 10%);
+    }
+  }
+
+  &__submit-btn {
+    @include button-primary;
+    width: 100%;
+    height: 48px;
+    font-size: $font-size-base;
+    font-weight: $font-weight-semibold;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top: 6px;
+  }
+}

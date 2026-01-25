@@ -1,0 +1,343 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.user-details {
+  &__back {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 32px;
+    cursor: pointer;
+    color: $text-secondary;
+    font-size: $font-size-md;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $text-primary;
+    }
+
+    svg {
+      width: 30px;
+      height: 12px;
+    }
+  }
+
+  &__header {
+    @include flex-between;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    @include respond-to('md') {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  &__title {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-medium;
+    color: $text-primary;
+  }
+
+  &__actions {
+    display: flex;
+    gap: 20px;
+
+    @include respond-to('md') {
+      width: 100%;
+    }
+  }
+
+  &__btn-blacklist {
+    padding: 12px 16px;
+    border: 1px solid $status-blacklisted;
+    border-radius: $radius-md;
+    background: transparent;
+    color: $status-blacklisted;
+    font-size: $font-size-base;
+    font-weight: $font-weight-semibold;
+    font-family: $font-family;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: rgba($status-blacklisted, 0.05);
+    }
+
+    @include respond-to('md') {
+      flex: 1;
+      font-size: $font-size-sm;
+      padding: 10px 12px;
+    }
+  }
+
+  &__btn-activate {
+    padding: 12px 16px;
+    border: 1px solid $primary-teal;
+    border-radius: $radius-md;
+    background: transparent;
+    color: $primary-teal;
+    font-size: $font-size-base;
+    font-weight: $font-weight-semibold;
+    font-family: $font-family;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: rgba($primary-teal, 0.05);
+    }
+
+    @include respond-to('md') {
+      flex: 1;
+      font-size: $font-size-sm;
+      padding: 10px 12px;
+    }
+  }
+
+  &__profile-card {
+    @include card-base;
+    padding: 30px;
+    margin-bottom: 30px;
+
+    @include respond-to('md') {
+      padding: 20px;
+    }
+  }
+
+  &__profile-top {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid $border-light;
+    flex-wrap: wrap;
+
+    @include respond-to('md') {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+    }
+  }
+
+  &__avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: $radius-full;
+    background: rgba($text-secondary, 0.1);
+    @include flex-center;
+
+    @include respond-to('md') {
+      width: 80px;
+      height: 80px;
+    }
+
+    svg {
+      width: 40px;
+      height: 40px;
+      color: $text-secondary;
+    }
+  }
+
+  &__info {
+    flex: 1;
+    min-width: 150px;
+  }
+
+  &__name {
+    font-size: 22px;
+    font-weight: $font-weight-medium;
+    color: $text-primary;
+    margin-bottom: 8px;
+  }
+
+  &__id {
+    font-size: $font-size-base;
+    color: $text-secondary;
+  }
+
+  &__tier {
+    padding: 0 30px;
+    border-left: 1px solid $border-light;
+    border-right: 1px solid $border-light;
+
+    @include respond-to('md') {
+      border: none;
+      padding: 0;
+    }
+  }
+
+  &__tier-label {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: $text-secondary;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  &__tier-stars {
+    display: flex;
+    gap: 5px;
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  &__balance-section {
+    padding-left: 30px;
+
+    @include respond-to('md') {
+      padding-left: 0;
+    }
+  }
+
+  &__balance {
+    font-size: 22px;
+    font-weight: $font-weight-medium;
+    color: $text-primary;
+    margin-bottom: 12px;
+  }
+
+  &__bank {
+    font-size: $font-size-sm;
+    color: $primary-teal;
+  }
+
+  &__tabs {
+    display: flex;
+    gap: 0;
+    margin-top: 30px;
+    border-bottom: 1px solid $border-light;
+    overflow-x: auto;
+    @include custom-scrollbar;
+  }
+
+  &__tab {
+    padding: 10px 25px;
+    font-size: $font-size-md;
+    font-weight: $font-weight-regular;
+    font-family: $font-family;
+    color: $text-secondary;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+
+    &:hover {
+      color: $primary-teal;
+    }
+
+    &--active {
+      color: $primary-teal;
+      border-bottom-color: $primary-teal;
+    }
+  }
+
+  &__content {
+    @include card-base;
+    padding: 30px;
+
+    @include respond-to('md') {
+      padding: 20px;
+    }
+  }
+
+  &__section {
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid $border-light;
+
+    &:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+  }
+
+  &__section-title {
+    font-size: $font-size-md;
+    font-weight: $font-weight-medium;
+    color: $text-primary;
+    margin-bottom: 30px;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 30px 20px;
+
+    @include respond-to('xl') {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include respond-to('lg') {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond-to('md') {
+      grid-template-columns: 1fr;
+    }
+
+    &--with-separator {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__label {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-regular;
+    color: $text-secondary;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  &__value {
+    font-size: $font-size-md;
+    font-weight: $font-weight-medium;
+    color: $text-primary;
+    word-break: break-word;
+  }
+
+  &__empty-message {
+    color: $text-secondary;
+    font-size: $font-size-base;
+  }
+
+  &__loading {
+    @include flex-center;
+    min-height: 400px;
+    font-size: $font-size-md;
+    color: $text-secondary;
+  }
+
+  &__not-found {
+    @include flex-center;
+    flex-direction: column;
+    gap: 20px;
+    min-height: 400px;
+
+    p {
+      font-size: $font-size-md;
+      color: $text-secondary;
+    }
+
+    a {
+      color: $primary-teal;
+      text-decoration: underline;
+    }
+  }
+}

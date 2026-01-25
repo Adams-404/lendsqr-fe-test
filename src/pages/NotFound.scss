@@ -1,0 +1,37 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.not-found {
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background: $bg-secondary;
+
+  &__content {
+    text-align: center;
+  }
+
+  &__title {
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-bold;
+    color: $text-primary;
+    margin-bottom: 16px;
+  }
+
+  &__message {
+    font-size: $font-size-lg;
+    color: $text-secondary;
+    margin-bottom: 16px;
+  }
+
+  &__link {
+    color: $primary-teal;
+    text-decoration: underline;
+    font-size: $font-size-md;
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+}

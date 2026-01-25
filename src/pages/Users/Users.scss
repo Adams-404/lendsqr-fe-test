@@ -1,0 +1,39 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.users-page {
+  &__title {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-medium;
+    color: $text-primary;
+    margin-bottom: 40px;
+
+    @include respond-to('md') {
+      font-size: $font-size-lg;
+      margin-bottom: 24px;
+    }
+  }
+
+  &__stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 26px;
+    margin-bottom: 40px;
+
+    @include respond-to('xl') {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond-to('md') {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+  }
+
+  &__loading {
+    @include flex-center;
+    min-height: 400px;
+    font-size: $font-size-md;
+    color: $text-secondary;
+  }
+}

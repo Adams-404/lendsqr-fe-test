@@ -1,0 +1,150 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.sidebar {
+  position: fixed;
+  top: $header-height;
+  left: 0;
+  width: $sidebar-width;
+  height: calc(100vh - #{$header-height});
+  background: $bg-sidebar;
+  border-right: 1px solid $border-light;
+  overflow-y: auto;
+  z-index: $z-index-sidebar;
+  @include custom-scrollbar;
+
+  @include respond-to('lg') {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+
+    &--open {
+      transform: translateX(0);
+    }
+  }
+
+  @include respond-to('md') {
+    top: 70px;
+    height: calc(100vh - 70px);
+  }
+
+  &__content {
+    padding: 40px 0 20px;
+  }
+
+  &__org-switch {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 30px;
+    margin-bottom: 52px;
+    cursor: pointer;
+
+    svg {
+      width: 16px;
+      height: 16px;
+      color: $text-primary;
+    }
+
+    span {
+      font-size: $font-size-md;
+      font-weight: $font-weight-regular;
+      color: $text-primary;
+    }
+  }
+
+  &__nav-section {
+    margin-bottom: 10px;
+  }
+
+  &__section-title {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: $text-primary;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 10px 30px;
+    margin-top: 20px;
+  }
+
+  &__nav-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 30px;
+    cursor: pointer;
+    transition: background 0.2s ease, border-left 0.2s ease;
+    border-left: 3px solid transparent;
+    color: $text-secondary;
+
+    &:hover {
+      background: rgba($primary-teal, 0.06);
+    }
+
+    &--active {
+      background: rgba($primary-teal, 0.06);
+      border-left-color: $primary-teal;
+
+      .sidebar__nav-icon,
+      .sidebar__nav-text {
+        color: $text-primary;
+        opacity: 1;
+      }
+    }
+
+    svg {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+      color: inherit;
+      opacity: 0.8;
+    }
+
+    span {
+      font-size: $font-size-md;
+      font-weight: $font-weight-regular;
+      color: inherit;
+    }
+  }
+
+  &__nav-icon {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    filter: none;
+  }
+
+  &__nav-text {
+    font-size: $font-size-md;
+    font-weight: $font-weight-regular;
+    color: inherit;
+  }
+
+  &__logout {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid $border-light;
+  }
+
+  &__version {
+    padding: 20px 30px;
+    font-size: $font-size-sm;
+    color: $text-secondary;
+  }
+}
+
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: calc(#{$z-index-sidebar} - 1);
+
+  @include respond-to('lg') {
+    &--open {
+      display: block;
+    }
+  }
+}
